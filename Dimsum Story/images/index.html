@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dimsum Story – Setiap Gigitan Punya Cerita</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFF9F3;--fg:#2A0F12;--mut:#6E5A57;--card:#fff;--line:#EBD9CC;--wine:#2A0F12;--chili:#E23D28;--bamboo:#F0C75E;--on:#FFF9F3;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1D0A0D;--fg:#FBEFE6;--mut:#BFA9A3;--card:#2A1317;--line:#43242A}}
+:root[data-theme="dark"]{--bg:#1D0A0D;--fg:#FBEFE6;--mut:#BFA9A3;--card:#2A1317;--line:#43242A}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--fg);font:400 1rem/1.65 'DM Sans',system-ui,sans-serif}
+h1,h2,h3{font-family:'Bricolage Grotesque',Georgia,sans-serif;line-height:1.05;letter-spacing:-.02em}
+img{display:block;max-width:100%}
+a{color:inherit}
+.w{width:min(1080px,90%);margin:auto}
+:focus-visible{outline:3px solid var(--bamboo);outline-offset:3px}
+.btn{display:inline-block;background:var(--chili);color:#fff;font-weight:700;text-decoration:none;padding:15px 28px;border-radius:14px;border:0;cursor:pointer;font-size:1rem}
+.btn:hover{filter:brightness(1.1)}
+.btn.y{background:var(--bamboo);color:#2A0F12}
+/* hero */
+.hero{background:var(--wine);color:var(--on);padding:28px 0 72px;overflow:hidden}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:56px}
+.top b{font:800 1.25rem 'Bricolage Grotesque',sans-serif}
+.top a{font-weight:500;text-decoration:none;opacity:.85}
+.hg{display:grid;gap:40px;align-items:center}
+.hero h1{font-size:clamp(3rem,10vw,6.2rem);font-weight:800}
+.hero p{max-width:34ch;margin:20px 0 30px;opacity:.85;font-size:1.1rem}
+.steam{position:relative;aspect-ratio:1;max-width:460px;width:100%;margin:auto}
+.steam img.m{width:100%;height:100%;object-fit:cover;border-radius:50%;border:10px solid var(--bamboo);box-shadow:0 0 0 10px rgba(240,199,94,.18),0 0 0 22px rgba(240,199,94,.08)}
+.steam img.s{position:absolute;right:-4%;bottom:2%;width:34%;aspect-ratio:1;object-fit:cover;border-radius:50%;border:6px solid var(--wine);outline:4px solid var(--chili)}
+@media(min-width:820px){.hg{grid-template-columns:1.15fr 1fr}}
+section{padding:80px 0}
+h2{font-size:clamp(2rem,5vw,3.2rem);margin-bottom:10px}
+.sub{color:var(--mut);margin-bottom:36px;max-width:52ch}
+/* pemilih menu */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.tab{font:700 .95rem 'DM Sans',sans-serif;padding:10px 18px;border-radius:999px;border:2px solid var(--line);background:transparent;color:var(--fg);cursor:pointer}
+.tab[aria-selected=true]{background:var(--chili);border-color:var(--chili);color:#fff}
+.pick{display:grid;gap:28px;background:var(--card);border:1px solid var(--line);border-radius:28px;padding:20px}
+.pick img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:18px}
+.pick h3{font-size:2rem;margin-bottom:8px}
+.pick p{color:var(--mut);margin-bottom:20px}
+.sizes{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+.sz{font:500 .95rem 'DM Sans',sans-serif;border:2px solid var(--line);background:transparent;color:var(--fg);border-radius:14px;padding:12px 6px;cursor:pointer;line-height:1.3}
+.sz b{display:block;font-size:1.1rem}
+.sz[aria-pressed=true]{border-color:var(--chili);background:rgba(226,61,40,.1)}
+.oil{display:flex;align-items:center;gap:12px;margin-bottom:22px;cursor:pointer}
+.oil img{width:48px;height:48px;border-radius:12px;object-fit:cover}
+.oil input{width:20px;height:20px;accent-color:var(--chili);margin-left:auto}
+.tot{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.tot strong{font:800 2rem 'Bricolage Grotesque',sans-serif}
+@media(min-width:820px){.pick{grid-template-columns:1fr 1fr;padding:28px;align-items:center}}
+/* keunggulan dan ulasan */
+.why{display:grid;gap:28px}
+.why h3{font-size:1.4rem;margin-bottom:6px}
+.why p{color:var(--mut)}
+@media(min-width:820px){.why{grid-template-columns:repeat(3,1fr)}}
+.rev{background:var(--wine);color:var(--on)}
+.rev h2{color:var(--bamboo)}
+.rg{display:grid;gap:18px}
+.rg blockquote{border-left:4px solid var(--chili);padding:4px 0 4px 18px;font-size:1.2rem;line-height:1.45}
+.rg cite{display:block;margin-top:8px;font-size:.9rem;opacity:.7;font-style:normal}
+@media(min-width:820px){.rg{grid-template-columns:repeat(3,1fr);gap:32px}}
+.st{display:grid;gap:14px;margin-top:8px}
+.st div{display:flex;gap:16px;align-items:center}
+.st i{flex:none;width:44px;height:44px;border-radius:50%;background:var(--bamboo);color:#2A0F12;display:grid;place-items:center;font:800 1.1rem 'Bricolage Grotesque',sans-serif;font-style:normal}
+.cta{background:var(--chili);color:#fff;text-align:center}
+.cta p{margin:0 auto 26px;opacity:.95}
+footer{padding:28px 0;text-align:center;color:var(--mut);font-size:.9rem}
+.fab{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:5;background:#25D366;color:#fff;font-weight:700;text-decoration:none;padding:13px 20px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.3)}
+@media(prefers-reduced-motion:no-preference){.steam img.m{animation:f 6s ease-in-out infinite}@keyframes f{50%{transform:translateY(-10px)}}}
+</style></head><body>
+
+<header class="hero"><div class="w">
+<div class="top"><b>🥟 Dimsum Story</b><a href="#menu">Lihat menu</a></div>
+<div class="hg">
+<div><h1>Setiap gigitan punya cerita.</h1>
+<p>Dimsum hangat dengan lima rasa. Pilih, klik, dan pesananmu langsung terkirim ke WhatsApp kami.</p>
+<a class="btn y" href="#menu">Pilih dimsum</a></div>
+<div class="steam"><img class="m" src="image/dimsum%20mentai.jpg" alt="Dimsum mentai dengan saus dibakar"><img class="s" src="image/dimsum%20original.jpg" alt="Dimsum original"></div>
+</div></div></header>
+
+<main>
+<section id="menu"><div class="w">
+<h2>Pilih dimsum favoritmu</h2>
+<p class="sub">Ketuk nama varian, pilih jumlah isi, lalu pesan. Total langsung dihitung.</p>
+<div class="tabs" role="tablist" id="tabs"></div>
+<div class="pick" id="pick"></div>
+</div></section>
+
+<section><div class="w">
+<h2>Kenapa pelanggan balik lagi</h2><p class="sub">Tiga hal yang paling sering mereka sebut.</p>
+<div class="why">
+<div><h3>Daging terasa penuh</h3><p>Isian ayam yang juicy dan lembut, bukan sekadar kulit.</p></div>
+<div><h3>Harga masuk akal</h3><p>Mulai Rp10.000 untuk isi 4. Pas untuk camilan sendiri atau patungan.</p></div>
+<div><h3>Disiapkan bersih dan hangat</h3><p>Dibuat segar setiap hari, dikemas rapi, bisa pesan antar.</p></div>
+</div></div></section>
+
+<section class="rev"><div class="w">
+<h2>Kata mereka</h2><p class="sub" style="color:inherit;opacity:.75">Dari ulasan Google Maps.</p>
+<div class="rg">
+<blockquote>Dimsum full daging, harga worth to buy.Zahra N.</blockquote>
+<blockquote>Dagingnya juicy banget, bakal reorder terus.Ihsan D.</blockquote>
+<blockquote>Enak banget, dagingnya empuk terus.Rain S.</blockquote>
+</div></div></section>
+
+<section><div class="w">
+<h2>Pesan dalam tiga langkah</h2><p class="sub">Tanpa akun, tanpa aplikasi tambahan.</p>
+<div class="st">
+<div><i>1</i><span>Pilih varian dan jumlah isi.</span></div>
+<div><i>2</i><span>Tekan Pesan, WhatsApp terbuka dengan pesan siap kirim.</span></div>
+<div><i>3</i><span>Kirim, tunggu konfirmasi, pesananmu disiapkan.</span></div>
+</div></div></section>
+
+<section class="cta"><div class="w"><h2>Lapar? Pesan sekarang.</h2><p>Ada pertanyaan soal menu atau pesanan banyak? Chat saja.</p>
+<a class="btn y" href="https://wa.me/628813071270?text=Halo%20Dimsum%20Story%2C%20saya%20mau%20tanya%20menu." target="_blank" rel="noopener">Chat WhatsApp</a></div></section>
+</main>
+
+<footer>© 2026 Dimsum Story</footer>
+<a class="fab" href="https://wa.me/628813071270?text=Halo%20Dimsum%20Story%2C%20saya%20mau%20pesan." target="_blank" rel="noopener">💬 Pesan</a>
+
+<script>
+// Nomor WhatsApp (format 62..., tanpa + dan tanpa 0 di depan) dan harga extra chili oil
+var WA="628813071270",OIL=3000;
+
+// Data menu: n = nama, i = foto, d = deskripsi, p = harga isi 4, 6, 10
+var M=[
+{n:"Original",i:"image/dimsum%20original.jpg",d:"Dimsum kukus isi ayam dengan topping wortel, keju, dan sosis.",p:[10000,14000,22000]},
+{n:"Kuah",i:"image/dimsum%20kuah.jpg",d:"Dimsum dalam kuah gurih pedas dengan taburan daun bawang.",p:[13000,18000,28000]},
+{n:"Goreng",i:"image/dimsum%20goreng.jpg",d:"Renyah di luar, lembut di dalam, disajikan dengan saus sambal.",p:[12000,17000,26000]},
+{n:"Mentai",i:"image/dimsum%20mentai.jpg",d:"Saus mentai creamy yang dibakar, dengan taburan parsley.",p:[16000,23000,36000]},
+{n:"Lava",i:"image/dimsum%20lava.jpg",d:"Saus lava pedas gurih yang melimpah, dengan taburan parsley.",p:[16000,23000,36000]}];
+
+var Q=[4,6,10],cur=0,sz=1,oil=false;
+
+function rp(n){return "Rp"+n.toLocaleString("id-ID")}
+
+// Menggambar ulang tab menu, kartu pilihan, total harga, dan tautan WhatsApp
+function draw(){
+ var m=M[cur],t=m.p[sz]+(oil?OIL:0);
+ var msg="Halo Dimsum Story, saya mau pesan Dimsum "+m.n+" Isi "+Q[sz]+(oil?" + Extra Chili Oil":"")+". Total: "+rp(t)+".";
+ document.getElementById("tabs").innerHTML=M.map(function(x,k){return '<button class="tab" role="tab" aria-selected="'+(k==cur)+'" data-t="'+k+'">'+x.n+'</button>'}).join("");
+ document.getElementById("pick").innerHTML='<img src="'+m.i+'" alt="Dimsum '+m.n+'"><div><h3>Dimsum '+m.n+'</h3><p>'+m.d+'</p><div class="sizes">'+Q.map(function(q,k){return '<button class="sz" aria-pressed="'+(k==sz)+'" data-s="'+k+'">Isi '+q+'<b>'+rp(m.p[k])+'</b></button>'}).join("")+'</div><label class="oil"><img src="image/chili%20oil.jpg" alt=""><span><b>Extra chili oil</b><br><small>Tambah '+rp(OIL)+'</small></span><input type="checkbox" id="oil" '+(oil?"checked":"")+' aria-label="Tambah extra chili oil"></label><div class="tot"><strong>'+rp(t)+'</strong><a class="btn" target="_blank" rel="noopener" href="https://wa.me/'+WA+'?text='+encodeURIComponent(msg)+'">Pesan lewat WhatsApp</a></div></div>';
+}
+
+// Klik tab = ganti varian, klik tombol isi = ganti porsi
+document.addEventListener("click",function(e){
+ var a=e.target.closest("[data-t],[data-s]");if(!a)return;
+ if(a.dataset.t!==undefined)cur=+a.dataset.t;else sz=+a.dataset.s;draw();
+});
+
+// Centang extra chili oil
+document.addEventListener("change",function(e){if(e.target.id=="oil"){oil=e.target.checked;draw()}});
+
+draw();
+</script>
+</body></html>
